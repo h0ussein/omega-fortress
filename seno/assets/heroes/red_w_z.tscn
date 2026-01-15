@@ -1,0 +1,64 @@
+[gd_scene load_steps=14 format=3 uid="uid://dd8avlo5patw3"]
+
+[ext_resource type="Texture2D" uid="uid://ds8snufp8ni5r" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Idle_000.png" id="1_1hh3w"]
+[ext_resource type="Texture2D" uid="uid://b7o3vewdfhrjj" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Idle_001.png" id="2_mi68b"]
+[ext_resource type="Texture2D" uid="uid://bqonp3h5l8owg" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Idle_002.png" id="3_powvf"]
+[ext_resource type="Texture2D" uid="uid://dsa842mddr4rb" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Idle_003.png" id="4_d03ai"]
+[ext_resource type="Texture2D" uid="uid://d1rfb42vdm1fl" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Idle_004.png" id="5_xjp08"]
+[ext_resource type="Texture2D" uid="uid://belcfs5mk7dru" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Idle_005.png" id="6_oj4xn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyucy"]
+atlas = ExtResource("1_1hh3w")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bupqd"]
+atlas = ExtResource("2_mi68b")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60q45"]
+atlas = ExtResource("3_powvf")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3d88"]
+atlas = ExtResource("4_d03ai")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1olt"]
+atlas = ExtResource("5_xjp08")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhisn"]
+atlas = ExtResource("6_oj4xn")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsqpj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyucy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bupqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60q45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3d88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1olt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhisn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="red_w_Z" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wsqpj")
+frame_progress = 0.287368

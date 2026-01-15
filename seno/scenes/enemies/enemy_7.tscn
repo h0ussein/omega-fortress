@@ -1,0 +1,144 @@
+[gd_scene load_steps=26 format=3 uid="uid://ckknk6sw6ora7"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy7.gd" id="1_w8ytq"]
+[ext_resource type="PackedScene" uid="uid://cymoj82y5bj1j" path="res://scenes/enemies/purple_fire_wizard.tscn" id="2_2ey75"]
+[ext_resource type="Texture2D" uid="uid://baxgby31p7idt" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Attack-1 (1).png" id="3_44rip"]
+[ext_resource type="Texture2D" uid="uid://juwrs833do3e" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Attack-1 (2).png" id="4_7a5o4"]
+[ext_resource type="Texture2D" uid="uid://i4yq56wt7npm" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Attack-1 (3).png" id="5_g6f8j"]
+[ext_resource type="Texture2D" uid="uid://ccqy8gert8lph" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Attack-1 (4).png" id="6_7rocu"]
+[ext_resource type="Texture2D" uid="uid://tvceu2qpjxot" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Attack-1 (5).png" id="7_1i0js"]
+[ext_resource type="Texture2D" uid="uid://c2lhhar46ow07" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Attack-1 (6).png" id="7_16swk"]
+[ext_resource type="Texture2D" uid="uid://ctouwr75gcg8j" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Die (1).png" id="14_n6qww"]
+[ext_resource type="Texture2D" uid="uid://ccpik748nqufg" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Die (2).png" id="15_rjivd"]
+[ext_resource type="Texture2D" uid="uid://bviadl1auxmyt" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Die (3).png" id="16_q3v13"]
+[ext_resource type="Texture2D" uid="uid://4bx848cagi26" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Die (4).png" id="17_3a114"]
+[ext_resource type="Texture2D" uid="uid://dcw34gpeiu57c" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Die (5).png" id="18_2uar7"]
+[ext_resource type="Texture2D" uid="uid://c8r02ve0b2rmb" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Die (6).png" id="19_snivj"]
+[ext_resource type="Texture2D" uid="uid://b0utnxqwgahic" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Die (7).png" id="20_cbqp3"]
+[ext_resource type="Texture2D" uid="uid://di55mkigjkew6" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Die (8).png" id="21_lasmk"]
+[ext_resource type="Texture2D" uid="uid://cucpyuorl8jrj" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Run (1).png" id="31_55urt"]
+[ext_resource type="Texture2D" uid="uid://bkx88cmxg0f5h" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Run (2).png" id="32_02553"]
+[ext_resource type="Texture2D" uid="uid://bnahlqx0rqht8" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Run (3).png" id="33_n1i4u"]
+[ext_resource type="Texture2D" uid="uid://cx6mx2kkd6a7j" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Run (4).png" id="34_aeslw"]
+[ext_resource type="Texture2D" uid="uid://ckgj5gkqox8bx" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Run (5).png" id="35_vpas0"]
+[ext_resource type="Texture2D" uid="uid://cdldv6g62kifh" path="res://assets/hero_mages/Game Character Sprites/Character (11)/Run (6).png" id="36_5gs6x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88ba5"]
+radius = 12.0416
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vuktk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_44rip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7a5o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g6f8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7rocu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1i0js")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_16swk")
+}],
+"loop": true,
+"name": &"attack1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_n6qww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rjivd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_q3v13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3a114")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2uar7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_snivj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cbqp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lasmk")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_55urt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_02553")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_n1i4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_aeslw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_vpas0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5gs6x")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4a6p"]
+radius = 158.013
+
+[node name="purple_wizard_enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_w8ytq")
+projectile_scene = ExtResource("2_2ey75")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11, 20)
+shape = SubResource("CircleShape2D_88ba5")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" groups=["enemies"]]
+position = Vector2(-9, -12)
+scale = Vector2(0.185547, 0.273438)
+sprite_frames = SubResource("SpriteFrames_vuktk")
+animation = &"run"
+
+[node name="ProjectileSpawnPoint" type="Marker2D" parent="Visuals"]
+position = Vector2(20, 25)
+
+[node name="AttackHero" type="Timer" parent="."]
+autostart = true
+
+[node name="AttackBase" type="Timer" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_m4a6p")
+
+[connection signal="timeout" from="AttackHero" to="." method="_on_projectile_timer_timeout"]
+[connection signal="timeout" from="AttackBase" to="." method="_on_attack_base_timeout"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

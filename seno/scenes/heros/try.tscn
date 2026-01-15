@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8gd6y0thgiig"]
+
+[ext_resource type="PackedScene" uid="uid://dja2xt5b4jgoh" path="res://scenes/base.tscn" id="2_oo1mq"]
+[ext_resource type="PackedScene" uid="uid://ckknk6sw6ora7" path="res://scenes/enemies/enemy_7.tscn" id="3_nrqdw"]
+[ext_resource type="PackedScene" uid="uid://bobb02e3lacn3" path="res://scenes/ui.tscn" id="4_gfdus"]
+[ext_resource type="PackedScene" uid="uid://wudb0hqfig4k" path="res://scenes/heros/electric_wizard.tscn" id="5_wksnh"]
+[ext_resource type="PackedScene" uid="uid://ukpvia7nqbw1" path="res://scenes/heros/fire_wizard.tscn" id="8_0t0qd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Base" parent="." instance=ExtResource("2_oo1mq")]
+position = Vector2(3, 1)
+
+[node name="ui" parent="." instance=ExtResource("4_gfdus")]
+
+[node name="Electric_wizard" parent="." instance=ExtResource("5_wksnh")]
+position = Vector2(-212, -114)
+
+[node name="purple_wizard_enemy" parent="." instance=ExtResource("3_nrqdw")]
+position = Vector2(-834, -144)
+
+[node name="wizard" parent="." instance=ExtResource("8_0t0qd")]
+position = Vector2(-323, 113)
+
+[node name="wizard2" parent="." instance=ExtResource("8_0t0qd")]
+position = Vector2(-244, -64)

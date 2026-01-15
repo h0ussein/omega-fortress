@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dja2xt5b4jgoh"]
+
+[ext_resource type="Script" path="res://scripts/base.gd" id="1_tws2k"]
+[ext_resource type="Texture2D" uid="uid://bgocoa4uvef51" path="res://assets/base1.png" id="2_d8jn5"]
+[ext_resource type="Texture2D" uid="uid://bwc2yvihspxd1" path="res://assets/final.PNG" id="3_vlox3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8shm"]
+radius = 33.0151
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noxml"]
+size = Vector2(126, 127)
+
+[node name="Base" type="StaticBody2D" groups=["base"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_tws2k")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s8shm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["base"]]
+position = Vector2(-0.500006, -1.37091e-06)
+scale = Vector2(0.171622, 0.266667)
+texture = ExtResource("2_d8jn5")
+region_enabled = true
+region_rect = Rect2(-3.59253, -0.907043, 740.728, 480.026)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_noxml")
+
+[node name="HealthComponent" type="Node" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="HealthComponent"]
+visible = false
+offset_left = -64.0
+offset_top = 39.0
+offset_right = 65.0
+offset_bottom = 66.0
+fill_mode = 1
+
+[node name="HealthLabel" type="Label" parent="HealthComponent"]
+offset_left = -22.0
+offset_top = 37.0
+offset_right = 18.0
+offset_bottom = 60.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="." groups=["base"]]
+visible = false
+position = Vector2(-5.96046e-07, 1.37091e-06)
+scale = Vector2(0.418301, 0.360563)
+texture = ExtResource("3_vlox3")

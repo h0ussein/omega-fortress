@@ -1,0 +1,377 @@
+[gd_scene load_steps=21 format=3 uid="uid://b7n1whkaae1wp"]
+
+[ext_resource type="Texture2D" uid="uid://6pnc8titmpq4" path="res://interface/background.jpg" id="1_sieiw"]
+[ext_resource type="Script" path="res://interface/map.gd" id="1_w032f"]
+[ext_resource type="FontFile" uid="uid://bvr85bfmbnisr" path="res://interface/Super Cottage.ttf" id="2_7iouj"]
+[ext_resource type="Texture2D" uid="uid://djsvfhw64d8ov" path="res://interface/forest.png" id="3_3xieo"]
+[ext_resource type="Texture2D" uid="uid://5npos0pdc80v" path="res://interface/desert.png" id="4_k6873"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bl7dy"]
+texture = ExtResource("1_sieiw")
+modulate_color = Color(0.384314, 0.384314, 0.384314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfifu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vehqp"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug7hk"]
+bg_color = Color(0.729412, 0.729412, 0.729412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pky0q"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0kdue"]
+texture = ExtResource("3_3xieo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gaw2"]
+texture = ExtResource("4_k6873")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wibac"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k02jc"]
+bg_color = Color(0.729412, 0.729412, 0.729412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_istw8"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7ngm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7qoi"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t55g"]
+bg_color = Color(0.729412, 0.729412, 0.729412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3a17e"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbke7"]
+texture = ExtResource("4_k6873")
+
+[node name="map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w032f")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bl7dy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.193
+anchor_right = 0.5
+anchor_bottom = 0.193
+offset_left = -140.0
+offset_top = -44.064
+offset_right = 132.0
+offset_bottom = 39.936
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_7iouj")
+theme_override_font_sizes/font_size = 50
+text = "Select Map "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.25463
+anchor_right = 0.953125
+anchor_bottom = 0.953704
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="map1" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/map1"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="HBoxContainer/map1/TextureRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.792
+anchor_right = 0.5
+anchor_bottom = 0.792
+offset_left = -59.0
+offset_top = -31.024
+offset_right = 62.0
+offset_bottom = 30.976
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vfifu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vehqp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ug7hk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pky0q")
+text = "Select
+"
+
+[node name="Label" type="Label" parent="HBoxContainer/map1/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.513
+anchor_top = 0.575
+anchor_right = 0.513
+anchor_bottom = 0.575
+offset_left = -61.304
+offset_top = -16.025
+offset_right = 59.696
+offset_bottom = 38.975
+theme_override_font_sizes/font_size = 40
+text = "Forest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="HBoxContainer/map1/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.285
+anchor_right = 0.51
+anchor_bottom = 0.285
+offset_left = -187.08
+offset_top = -92.395
+offset_right = 200.92
+offset_bottom = 100.605
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0kdue")
+
+[node name="map2" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/map2"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="HBoxContainer/map2/TextureRect3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.792
+anchor_right = 0.5
+anchor_bottom = 0.792
+offset_left = -59.0
+offset_top = -31.024
+offset_right = 62.0
+offset_bottom = 30.976
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vfifu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vehqp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ug7hk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pky0q")
+text = "Select
+"
+
+[node name="Label" type="Label" parent="HBoxContainer/map2/TextureRect3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.513
+anchor_top = 0.575
+anchor_right = 0.513
+anchor_bottom = 0.575
+offset_left = -61.304
+offset_top = -16.025
+offset_right = 59.696
+offset_bottom = 38.975
+theme_override_font_sizes/font_size = 40
+text = "desert
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="HBoxContainer/map2/TextureRect3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.285
+anchor_right = 0.51
+anchor_bottom = 0.285
+offset_left = -187.08
+offset_top = -92.395
+offset_right = 200.92
+offset_bottom = 100.605
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3gaw2")
+
+[node name="back from map" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.877
+anchor_right = 0.503
+anchor_bottom = 0.877
+offset_left = -57.4561
+offset_top = -21.296
+offset_right = 68.5439
+offset_bottom = 20.704
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_wibac")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k02jc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_istw8")
+text = "Back
+"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.748
+anchor_top = 0.802
+anchor_right = 0.748
+anchor_bottom = 0.802
+offset_left = 771.08
+offset_top = 459.92
+offset_right = 893.08
+offset_bottom = 518.92
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7ngm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7qoi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0t55g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3a17e")
+text = "Select
+"
+
+[node name="Label2" type="Label" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.726
+anchor_top = 0.671
+anchor_right = 0.726
+anchor_bottom = 0.671
+offset_left = 763.96
+offset_top = 388.16
+offset_right = 891.96
+offset_bottom = 443.16
+theme_override_font_sizes/font_size = 40
+text = "Desert"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.742
+anchor_top = 0.466
+anchor_right = 0.742
+anchor_bottom = 0.466
+offset_left = 638.32
+offset_top = 181.36
+offset_right = 1026.32
+offset_bottom = 374.36
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pbke7")
+
+[connection signal="pressed" from="HBoxContainer/map1/TextureRect/Button" to="." method="start_game"]
+[connection signal="pressed" from="HBoxContainer/map2/TextureRect3/Button" to="." method="start_game"]
+[connection signal="pressed" from="back from map" to="." method="_on_back_from_map_pressed"]

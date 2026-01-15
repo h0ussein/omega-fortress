@@ -1,0 +1,254 @@
+[gd_scene load_steps=13 format=3 uid="uid://deo3gqlh3y1mp"]
+
+[ext_resource type="Script" path="res://scripts/map1/game_map.gd" id="1_f3hqv"]
+[ext_resource type="Texture2D" uid="uid://cfb0w5u1laa3u" path="res://icon.svg" id="2_7xq0b"]
+[ext_resource type="Script" path="res://scripts/map1/base.gd" id="2_n7oap"]
+[ext_resource type="Script" path="res://scripts/map1/grid_system.gd" id="3_bpsa4"]
+[ext_resource type="Script" path="res://scripts/map1/hero_manager.gd" id="4_cmuhb"]
+[ext_resource type="Script" path="res://scripts/map1/build_button.gd" id="4_f0lh2"]
+[ext_resource type="Script" path="res://scripts/map1/barrier_system.gd" id="4_hfeoh"]
+[ext_resource type="PackedScene" uid="uid://b7ygde22k63au" path="res://scenes/HeroPanel.tscn" id="5_b2h33"]
+[ext_resource type="PackedScene" uid="uid://ukpvia7nqbw1" path="res://scenes/heros/fire_wizard.tscn" id="7_3xmrf"]
+[ext_resource type="PackedScene" uid="uid://cn0lvuxmmatic" path="res://scenes/hero_shop.tscn" id="7_0670o"]
+[ext_resource type="PackedScene" uid="uid://kithousf5a41" path="res://scenes/enemies/enemy_1.tscn" id="11_jh1y7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lf2j"]
+size = Vector2(203, 201)
+
+[node name="GameMap" type="Node2D"]
+position = Vector2(-2.00006, 4)
+script = ExtResource("1_f3hqv")
+
+[node name="Base" type="StaticBody2D" parent="." groups=["base"]]
+script = ExtResource("2_n7oap")
+
+[node name="Sprite2D" type="Sprite2D" parent="Base"]
+texture = ExtResource("2_7xq0b")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
+position = Vector2(4.5, 1.5)
+shape = SubResource("RectangleShape2D_4lf2j")
+
+[node name="HealthCompnent" type="Node" parent="Base"]
+
+[node name="HeroManager" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_cmuhb")
+
+[node name="Heros" type="Node2D" parent="HeroManager"]
+
+[node name="HeroManager" type="Node2D" parent="HeroManager"]
+visible = false
+script = ExtResource("4_cmuhb")
+
+[node name="Heros" type="Node2D" parent="HeroManager/HeroManager"]
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+format = 2
+
+[node name="PathfindingManager" type="Node" parent="."]
+
+[node name="EnemySystem" type="Node2D" parent="."]
+visible = false
+
+[node name="WaveManager" type="Node2D" parent="EnemySystem"]
+
+[node name="Enemies" type="Node2D" parent="EnemySystem"]
+
+[node name="SpawnPoints" type="Node2D" parent="EnemySystem"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameHUD" type="Control" parent="UI"]
+layout_mode = 3
+anchor_left = -0.501
+anchor_top = -0.498
+anchor_right = 0.798481
+anchor_bottom = 0.596136
+offset_left = -1.84802
+offset_top = 3.70401
+offset_right = 1151.15
+offset_bottom = 651.704
+metadata/_edit_use_anchors_ = true
+
+[node name="ResourcePanel" type="Panel" parent="UI/GameHUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.00264151
+anchor_bottom = 0.0198968
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 429.0
+offset_bottom = 44.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gold" type="Label" parent="UI/GameHUD/ResourcePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03333
+anchor_top = 0.0990891
+anchor_right = 0.03333
+anchor_bottom = 0.0990891
+offset_left = 0.0680599
+offset_top = -0.00800133
+offset_right = 41.0681
+offset_bottom = 22.992
+text = "Gold:"
+metadata/_edit_use_anchors_ = true
+
+[node name="BarriersLabel" type="Label" parent="UI/GameHUD/ResourcePanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="BuildMenu" type="Panel" parent="UI/GameHUD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.415653
+anchor_top = 0.226971
+anchor_right = 0.415653
+anchor_bottom = 0.226971
+offset_left = -78.4812
+offset_top = -40.0
+offset_right = -0.481079
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HeroMenu" type="Panel" parent="UI/GameHUD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.144
+anchor_top = 0.555
+anchor_right = 0.144
+anchor_bottom = 0.555
+offset_left = -0.600037
+offset_top = -0.13501
+offset_right = 84.4
+offset_bottom = 89.865
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="move" type="Button" parent="UI/GameHUD/HeroMenu"]
+layout_mode = 0
+offset_left = 35.001
+offset_top = 59.0
+offset_right = 86.001
+offset_bottom = 90.0
+text = "move"
+
+[node name="sell" type="Button" parent="UI/GameHUD/HeroMenu"]
+layout_mode = 0
+offset_left = -0.999023
+offset_top = 60.0
+offset_right = 33.001
+offset_bottom = 91.0
+text = "sell"
+
+[node name="WaveInfo" type="Panel" parent="UI/GameHUD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.418526
+anchor_top = 0.447192
+anchor_right = 0.418526
+anchor_bottom = 0.447192
+offset_left = -134.093
+offset_top = -163.84
+offset_right = -0.0930176
+offset_bottom = 0.159973
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="HeroPanel" parent="UI/GameHUD" instance=ExtResource("5_b2h33")]
+visible = false
+
+[node name="GameOverScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -775.0
+offset_top = -492.0
+offset_right = -329.0
+offset_bottom = -214.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" type="Control" parent="UI"]
+layout_mode = 3
+anchor_left = 0.45
+anchor_top = -0.469
+anchor_right = 0.45
+anchor_bottom = -0.469
+offset_left = -0.400146
+offset_top = -0.0879822
+offset_right = 39.5999
+offset_bottom = 39.912
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="BuildButton" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = -0.474
+anchor_top = -0.312
+anchor_right = -0.474
+anchor_bottom = -0.312
+offset_left = 0.0480347
+offset_top = 0.17601
+offset_right = 56.0481
+offset_bottom = 31.176
+text = "build"
+script = ExtResource("4_f0lh2")
+metadata/_edit_use_anchors_ = true
+
+[node name="HeroShop" parent="UI" instance=ExtResource("7_0670o")]
+offset_left = -270.0
+offset_top = 155.0
+offset_right = 440.0
+offset_bottom = 314.0
+scale = Vector2(0.725666, 0.95057)
+metadata/_edit_use_anchors_ = true
+
+[node name="GridSystem" type="Node2D" parent="."]
+script = ExtResource("3_bpsa4")
+
+[node name="BarrierSystem" type="Node2D" parent="GridSystem"]
+script = ExtResource("4_hfeoh")
+
+[node name="Barriers" type="Node2D" parent="GridSystem/BarrierSystem"]
+
+[node name="ColorRect" type="ColorRect" parent="GridSystem"]
+visible = false
+offset_left = 156.0
+offset_top = 63.0
+offset_right = 196.0
+offset_bottom = 103.0
+size_flags_horizontal = 4
+color = Color(0.258824, 0.258824, 0.258824, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="GameController" type="Node" parent="."]
+
+[node name="wizard" parent="." instance=ExtResource("7_3xmrf")]
+position = Vector2(134, -8)
+
+[node name="enemy1" parent="." instance=ExtResource("11_jh1y7")]
+position = Vector2(-477, -10)
+
+[connection signal="pressed" from="UI/BuildButton" to="." method="_on_build_button_pressed"]

@@ -1,0 +1,619 @@
+[gd_scene load_steps=64 format=3 uid="uid://wudb0hqfig4k"]
+
+[ext_resource type="PackedScene" uid="uid://dpreicvwmtrq8" path="res://scenes/heros/electirc_fire.tscn" id="2_0qs1t"]
+[ext_resource type="Texture2D" uid="uid://dna2yfkkhmasq" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_000.png" id="3_dwxsj"]
+[ext_resource type="Texture2D" uid="uid://dg1limlvpyilr" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_001.png" id="4_qceqw"]
+[ext_resource type="Texture2D" uid="uid://m2ojchd7gr5w" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_002.png" id="5_bakgs"]
+[ext_resource type="Texture2D" uid="uid://4mbkpwo5g7in" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_003.png" id="6_f0nwf"]
+[ext_resource type="Texture2D" uid="uid://bollpmdipiqb7" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_004.png" id="7_mjptg"]
+[ext_resource type="Texture2D" uid="uid://bofmiqhh82q5i" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_005.png" id="8_gbq48"]
+[ext_resource type="Texture2D" uid="uid://cdrhqi2ll0b0e" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_000.png" id="9_o1ffu"]
+[ext_resource type="Texture2D" uid="uid://bdttu50n3asn" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_001.png" id="10_m1awt"]
+[ext_resource type="Texture2D" uid="uid://dp5gl7evjx6t8" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_002.png" id="11_0gdtp"]
+[ext_resource type="Texture2D" uid="uid://b0iwnsg8hymp4" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_003.png" id="12_5jnv1"]
+[ext_resource type="Texture2D" uid="uid://3oewvh1ybloy" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_004.png" id="13_g1r1h"]
+[ext_resource type="Texture2D" uid="uid://fk7ullqapwr" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_005.png" id="14_50s0g"]
+[ext_resource type="Texture2D" uid="uid://b7r6vtqp5l2fw" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_006.png" id="15_i631w"]
+[ext_resource type="Texture2D" uid="uid://cs5vy5hqmc7cg" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_007.png" id="16_80ah6"]
+[ext_resource type="Texture2D" uid="uid://c0tnrf0u0v2fc" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Hurt_000.png" id="17_cj7b5"]
+[ext_resource type="Texture2D" uid="uid://ik2cppmqrc5p" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Hurt_001.png" id="18_yh8b2"]
+[ext_resource type="Texture2D" uid="uid://k2evaa3r83tr" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Hurt_002.png" id="19_eaeh0"]
+[ext_resource type="Texture2D" uid="uid://scur61qq3v12" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_000.png" id="20_s6cyi"]
+[ext_resource type="Texture2D" uid="uid://bpsewerl3t5lh" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_001.png" id="21_v7036"]
+[ext_resource type="Texture2D" uid="uid://d1pieebu0wh2s" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_002.png" id="22_5dk72"]
+[ext_resource type="Texture2D" uid="uid://bau4nq37hnq3i" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_003.png" id="23_k25va"]
+[ext_resource type="Texture2D" uid="uid://bv3xpa4sxnir1" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_004.png" id="24_ksiea"]
+[ext_resource type="Texture2D" uid="uid://t5mubf335i7w" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_005.png" id="25_mhu7k"]
+[ext_resource type="Texture2D" uid="uid://bm67qlx74fsky" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_000.png" id="26_w32cv"]
+[ext_resource type="Texture2D" uid="uid://dpvlyhg4jefbj" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_001.png" id="27_hfmvs"]
+[ext_resource type="Texture2D" uid="uid://dtd2ve3oiuimw" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_002.png" id="28_v0tt3"]
+[ext_resource type="Texture2D" uid="uid://dsxjqsvje37ti" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_003.png" id="29_os4jx"]
+[ext_resource type="Texture2D" uid="uid://bebyqpdew7vdn" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_004.png" id="30_lmiw1"]
+[ext_resource type="Texture2D" uid="uid://d1uvvu4nkp174" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_005.png" id="31_oechu"]
+
+[sub_resource type="GDScript" id="GDScript_rtywl"]
+script/source = "extends \"res://scripts/heroes/heros_base.gd\"
+
+# Electric Wizard specific properties
+@export var projectile_scene: PackedScene
+@export var projectile_speed: float = 350.0
+@export var max_projectile_distance: float = 400.0
+@export var pierce_count: int = 5  # Number of enemies each projectile can hit
+@export var projectile_spawn_offset: Vector2 = Vector2(0, -20)
+@export var chain_lightning: bool = false  # Whether to use chain lightning effect
+
+# Node references specific to electric wizard
+@onready var projectile_spawn_point = $Visuals/ProjectileSpawnPoint
+@onready var animated_sprite = $Visuals/AnimatedSprite2D
+@onready var projectile_timer = Timer.new()
+
+func _ready():
+	# Set base hero properties through assignment
+	hero_type = \"electric_wizard\"
+	max_health = 65.0  # Less health than other wizards
+	health = max_health
+	attack_range = 220.0  # Longer range than ice wizard
+	attack_speed = 0.7  # Slower attack speed
+	damage = 18.0  # Medium damage
+	base_cost = 300  # More expensive than other wizards
+
+	# Create and configure projectile timer
+	projectile_timer.one_shot = true
+	projectile_timer.wait_time = 0.3  # Delay before spawning projectile
+	projectile_timer.timeout.connect(_on_projectile_timer_timeout)
+	add_child(projectile_timer)
+	print(\"ElectricWizard: Created projectile timer with delay: \" + str(projectile_timer.wait_time) + \"s\")
+
+	# Load the projectile scene if not assigned in the inspector
+	if not projectile_scene:
+		var scene_path = \"res://scenes/projectiles/electric_projectile.tscn\"
+		if ResourceLoader.exists(scene_path):
+			projectile_scene = load(scene_path)
+			print(\"ElectricWizard: Loaded projectile scene from: \" + scene_path)
+		else:
+			print(\"ElectricWizard: WARNING - Could not find projectile scene at: \" + scene_path)
+			# Try alternative paths
+			var alt_paths = [
+				\"res://electric_projectile.tscn\",
+				\"res://scenes/electric_projectile.tscn\",
+				\"res://projectiles/electric_projectile.tscn\"
+			]
+			
+			for path in alt_paths:
+				if ResourceLoader.exists(path):
+					projectile_scene = load(path)
+					print(\"ElectricWizard: Loaded projectile scene from alternative path: \" + path)
+					break
+
+	# Call parent _ready function
+	super._ready()
+
+	print(\"ElectricWizard: Initialized with attack speed: \" + str(attack_speed) + \", damage: \" + str(damage))
+	print(\"ElectricWizard: Projectile scene assigned: \" + str(projectile_scene != null))
+
+# Override perform_attack to implement electric wizard specific attack
+func perform_attack():
+	if not target_enemy or not is_instance_valid(target_enemy):
+		return
+
+	# Skip enemies that are dying
+	if target_enemy.has_method(\"is_dying\") and target_enemy.is_dying:
+		target_enemy = null
+		stop_attack()
+		return
+
+	print(\"ElectricWizard: Performing electric attack\")
+
+	# Play attack sound
+	if audio_player and attack_sound:
+		audio_player.stream = attack_sound
+		audio_player.play()
+
+	# Play attack animation
+	if animated_sprite:
+		animated_sprite.play(\"attack1\")
+	
+	# Start timer to spawn projectile
+	projectile_timer.start()
+	
+	# Emit signal
+	emit_signal(\"attack_performed\", target_enemy)
+
+# Called when the projectile timer times out
+func _on_projectile_timer_timeout():
+	print(\"ElectricWizard: Projectile timer timeout, spawning projectile\")
+	_spawn_electric_projectile()
+
+# Spawn electric projectile
+func _spawn_electric_projectile():
+	if not target_enemy or not is_instance_valid(target_enemy) or is_moving:
+		print(\"ElectricWizard: Cannot spawn projectile - invalid target or moving\")
+		return
+
+	# Skip enemies that are dying
+	if target_enemy.has_method(\"is_dying\") and target_enemy.is_dying:
+		print(\"ElectricWizard: Target is dying, canceling projectile\")
+		target_enemy = null
+		stop_attack()
+		return
+
+	# Check if we have a projectile scene
+	if not projectile_scene:
+		print(\"ElectricWizard: ERROR - No projectile scene assigned!\")
+		
+		# Try to load the scene one more time
+		var scene_path = \"res://scenes/projectiles/electric_projectile.tscn\"
+		if ResourceLoader.exists(scene_path):
+			projectile_scene = load(scene_path)
+			print(\"ElectricWizard: Loaded projectile scene from: \" + scene_path)
+		else:
+			# Create a simple projectile on the fly if we can't load the scene
+			print(\"ElectricWizard: Creating a simple projectile as fallback\")
+			_create_simple_projectile()
+			return
+
+	print(\"ElectricWizard: Spawning electric projectile\")
+
+	# Create projectile instance
+	var projectile = projectile_scene.instantiate()
+
+	# Determine spawn position
+	var spawn_position = _get_spawn_position()
+
+	# Set projectile properties
+	projectile.global_position = spawn_position
+	projectile.target = target_enemy
+
+	# Set projectile-specific properties if they exist
+	if projectile.has_method(\"set_damage\"):
+		projectile.set_damage(damage)
+	elif \"damage\" in projectile:
+		projectile.damage = damage
+
+	if projectile.has_method(\"set_speed\"):
+		projectile.set_speed(projectile_speed)
+	elif \"speed\" in projectile:
+		projectile.speed = projectile_speed
+
+	if projectile.has_method(\"set_max_distance\"):
+		projectile.set_max_distance(max_projectile_distance)
+	elif \"max_distance\" in projectile:
+		projectile.max_distance = max_projectile_distance
+		
+	if projectile.has_method(\"set_pierce_count\"):
+		projectile.set_pierce_count(pierce_count)
+	elif \"pierce_count\" in projectile:
+		projectile.pierce_count = pierce_count
+
+	# Add to scene
+	get_parent().add_child(projectile)
+	print(\"ElectricWizard: Successfully spawned electric projectile\")
+
+# Helper function to get spawn position
+func _get_spawn_position() -> Vector2:
+	var spawn_position = global_position
+	if projectile_spawn_point and is_instance_valid(projectile_spawn_point):
+		spawn_position = projectile_spawn_point.global_position
+		print(\"ElectricWizard: Using ProjectileSpawnPoint at \" + str(spawn_position))
+	else:
+		# If no spawn point, use a position slightly in front of the hero based on facing direction
+		var offset = projectile_spawn_offset
+		if animated_sprite and animated_sprite.flip_h:
+			offset.x = -offset.x  # Flip offset if facing left
+		spawn_position = global_position + offset
+		print(\"ElectricWizard: Using calculated spawn position at \" + str(spawn_position))
+
+	return spawn_position
+
+# Create a simple projectile as a fallback if the scene can't be loaded
+func _create_simple_projectile():
+	# Create a new Area2D node
+	var projectile = Area2D.new()
+	projectile.name = \"SimpleElectricProjectile\"
+
+	# Add a script to the projectile
+	var script = GDScript.new()
+	script.source_code = \"\"\"
+extends Area2D
+
+var target: Node2D = null
+var speed: float = 350.0
+var damage: float = 18.0
+var max_distance: float = 400.0
+var pierce_count: int = 5
+var hit_enemies = []
+var start_position: Vector2
+var has_expired: bool = false
+
+func _ready():
+	# Create a collision shape
+	var collision = CollisionShape2D.new()
+	var shape = CircleShape2D.new()
+	shape.radius = 8.0
+	collision.shape = shape
+	add_child(collision)
+
+	# Create a visual representation
+	var sprite = ColorRect.new()
+	sprite.color = Color(0.5, 0.8, 1.0, 0.8)  # Electric blue color
+	sprite.size = Vector2(16, 16)
+	sprite.position = Vector2(-8, -8)
+	add_child(sprite)
+
+	# Connect signals
+	body_entered.connect(_on_body_entered)
+
+	# Set up auto-destruction timer
+	var timer = Timer.new()
+	timer.wait_time = 5.0
+	timer.one_shot = true
+	timer.autostart = true
+	timer.timeout.connect(queue_free)
+	add_child(timer)
+	
+	# Store starting position
+	start_position = global_position
+
+func _process(delta):
+	if has_expired:
+		return
+		
+	# Check if we've exceeded max distance
+	var distance_traveled = global_position.distance_to(start_position)
+	if distance_traveled >= max_distance:
+		expire()
+		return
+
+	# Always continue in the current direction, never follow the target
+	var direction = Vector2(cos(rotation), sin(rotation))
+	
+	# If we have a target and haven't started moving yet, set initial direction toward target
+	if target and is_instance_valid(target) and distance_traveled < 10:
+		direction = global_position.direction_to(target.global_position)
+		# Store this direction by updating our rotation
+		rotation = direction.angle()
+	
+	# Move projectile at constant speed
+	global_position += direction * speed * delta
+
+func _on_body_entered(body):
+	if has_expired:
+		return
+
+	if body.is_in_group(\"enemies\"):
+		# Skip if we've already hit this enemy
+		if body in hit_enemies:
+			return
+			
+		# Add to hit list
+		hit_enemies.append(body)
+		
+		# Deal damage
+		if body.has_method(\"take_damage\"):
+			body.take_damage(damage)
+		
+		# Check if we've hit our pierce limit
+		if hit_enemies.size() >= pierce_count:
+			expire()
+	
+	# Destroy on hitting barriers or other solid objects
+	elif body.is_in_group(\"barriers\") or body.is_in_group(\"solid\"):
+		expire()
+
+func expire():
+	if has_expired:
+		return
+		
+	has_expired = true
+	
+	# Fade out and destroy
+	var tween = create_tween()
+	tween.tween_property(self, \"modulate\", Color(0.5, 0.8, 1.0, 0), 0.3)
+	tween.tween_callback(queue_free)
+
+# Setter methods for external configuration
+func set_damage(value: float):
+	damage = value
+
+func set_speed(value: float):
+	speed = value
+
+func set_max_distance(value: float):
+	max_distance = value
+
+func set_pierce_count(value: int):
+	pierce_count = value
+\"\"\"
+	script.reload()
+	projectile.set_script(script)
+
+	# Set projectile properties
+	var spawn_position = _get_spawn_position()
+	projectile.global_position = spawn_position
+	projectile.target = target_enemy
+
+	# Add to scene
+	get_parent().add_child(projectile)
+	print(\"ElectricWizard: Created simple fallback projectile\")
+
+# Override stop_attack to also stop the projectile timer
+func stop_attack():
+	super.stop_attack()
+	projectile_timer.stop()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdocg"]
+atlas = ExtResource("3_dwxsj")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1m3q"]
+atlas = ExtResource("4_qceqw")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf7ms"]
+atlas = ExtResource("5_bakgs")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42gc5"]
+atlas = ExtResource("6_f0nwf")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmngt"]
+atlas = ExtResource("7_mjptg")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k51i"]
+atlas = ExtResource("8_gbq48")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2ctd"]
+atlas = ExtResource("9_o1ffu")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmuwr"]
+atlas = ExtResource("10_m1awt")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whftj"]
+atlas = ExtResource("11_0gdtp")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jly41"]
+atlas = ExtResource("12_5jnv1")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppv4i"]
+atlas = ExtResource("13_g1r1h")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45y0w"]
+atlas = ExtResource("14_50s0g")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31gq0"]
+atlas = ExtResource("15_i631w")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg4he"]
+atlas = ExtResource("16_80ah6")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v3mu"]
+atlas = ExtResource("17_cj7b5")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sko5"]
+atlas = ExtResource("18_yh8b2")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tto63"]
+atlas = ExtResource("19_eaeh0")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugwmj"]
+atlas = ExtResource("20_s6cyi")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuhrf"]
+atlas = ExtResource("21_v7036")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h20rl"]
+atlas = ExtResource("22_5dk72")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jad8h"]
+atlas = ExtResource("23_k25va")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnxmy"]
+atlas = ExtResource("24_ksiea")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an2pb"]
+atlas = ExtResource("25_mhu7k")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0uxt"]
+atlas = ExtResource("26_w32cv")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kggvl"]
+atlas = ExtResource("27_hfmvs")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55shf"]
+atlas = ExtResource("28_v0tt3")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0a7e"]
+atlas = ExtResource("29_os4jx")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxyps"]
+atlas = ExtResource("30_lmiw1")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30reu"]
+atlas = ExtResource("31_oechu")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2vbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdocg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1m3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf7ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42gc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmngt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k51i")
+}],
+"loop": true,
+"name": &"attack1",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2ctd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmuwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whftj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jly41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppv4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45y0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31gq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg4he")
+}],
+"loop": true,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v3mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sko5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tto63")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugwmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuhrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h20rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jad8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnxmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an2pb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0uxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kggvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55shf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0a7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxyps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30reu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v62vn"]
+radius = 87.367
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h21g"]
+size = Vector2(30, 36)
+
+[node name="Electric_wizard" type="CharacterBody2D" groups=["heros"]]
+collision_mask = 6
+script = SubResource("GDScript_rtywl")
+projectile_scene = ExtResource("2_0qs1t")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="ProjectileSpawnPoint" type="Marker2D" parent="Visuals"]
+position = Vector2(15, 15)
+gizmo_extents = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(-0.5, 2)
+scale = Vector2(0.0839844, 0.0820313)
+sprite_frames = SubResource("SpriteFrames_w2vbl")
+animation = &"run"
+frame_progress = 0.327711
+
+[node name="AttackArea" type="Area2D" parent="." groups=["heros"]]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visibility_layer = 2
+shape = SubResource("CircleShape2D_v62vn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["heros"]]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_1h21g")
+
+[node name="AttackTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HurtTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_enemy_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_enemy_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

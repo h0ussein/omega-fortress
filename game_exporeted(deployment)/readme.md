@@ -1,0 +1,1 @@
+by downloading this folder you can run the game on the desktop by pressing on the omerga.exe

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bltmn6sqngu7f"]
+
+[ext_resource type="Script" path="res://scripts/heroes/laser.gd" id="1_ltho1"]
+[ext_resource type="Texture2D" uid="uid://dx8if0t5pq8xj" path="res://assets/hero_mages/Elements/Elemets , Bullets, Etc/Laser.png" id="2_5n0tk"]
+
+[sub_resource type="Curve" id="Curve_spro3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhyj2"]
+atlas = ExtResource("2_5n0tk")
+region = Rect2(0, 0, 4114, 374)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tifli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhyj2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbcpo"]
+size = Vector2(238, 20)
+
+[node name="laser" type="Node2D"]
+position = Vector2(22, 0)
+script = ExtResource("1_ltho1")
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0, 13, 0, 36, 0, 61, -1)
+width_curve = SubResource("Curve_spro3")
+
+[node name="HitEffect" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19, 2)
+scale = Vector2(0.0596743, -0.0494652)
+sprite_frames = SubResource("SpriteFrames_tifli")
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(-18, 0)
+shape = SubResource("RectangleShape2D_vbcpo")

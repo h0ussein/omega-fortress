@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4sphl2jhcsep"]
+
+[ext_resource type="PackedScene" uid="uid://ukpvia7nqbw1" path="res://scenes/red_wizard_woman.tscn" id="1_2x568"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_rqgq3"]
+[ext_resource type="PackedScene" uid="uid://c6p507w1j3lwf" path="res://scenes/barier.tscn" id="2_dn88x"]
+[ext_resource type="PackedScene" uid="uid://dja2xt5b4jgoh" path="res://scenes/base.tscn" id="3_8unso"]
+[ext_resource type="PackedScene" uid="uid://dqmfowyef4bb2" path="res://scenes/ui.tscn" id="5_ko7wu"]
+[ext_resource type="Script" path="res://scripts/debug_helper.gd" id="7_b4woo"]
+[ext_resource type="PackedScene" uid="uid://v5c2h61a5ttn" path="res://scenes/grid_system.tscn" id="8_u3coy"]
+[ext_resource type="PackedScene" uid="uid://brbpw0tl6psd5" path="res://scenes/biuld_button.tscn" id="8_wxi4i"]
+
+[node name="Node2D_main" type="Node2D"]
+script = ExtResource("1_rqgq3")
+barrier_scenes = Array[PackedScene]([ExtResource("2_dn88x")])
+
+[node name="Heros" type="Node2D" parent="."]
+
+[node name="wizard" parent="." instance=ExtResource("1_2x568")]
+position = Vector2(422, 291)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("7_b4woo")
+
+[node name="Base" parent="." instance=ExtResource("3_8unso")]
+position = Vector2(533, 356)
+
+[node name="GridSystem" parent="." instance=ExtResource("8_u3coy")]
+cell_size = null
+grid_color = null
+grid_thickness = null
+range_color = null
+invalid_color = null
+movement_range = null
+path_preview_color = null
+path_width = null
+
+[node name="ui" parent="." instance=ExtResource("5_ko7wu")]
+
+[node name="BiuldButton" parent="." instance=ExtResource("8_wxi4i")]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4sphl2jhcsep"]
+
+[ext_resource type="PackedScene" uid="uid://ukpvia7nqbw1" path="res://scenes/red_wizard_woman.tscn" id="1_2x568"]
+[ext_resource type="PackedScene" uid="uid://kithousf5a41" path="res://scenes/enemy_1.tscn" id="2_3ag2h"]
+[ext_resource type="PackedScene" uid="uid://dja2xt5b4jgoh" path="res://scenes/base.tscn" id="3_8unso"]
+
+[node name="Node2D_main" type="Node2D"]
+
+[node name="Base" parent="." instance=ExtResource("3_8unso")]
+position = Vector2(272, 197)
+
+[node name="enemy1" parent="." instance=ExtResource("2_3ag2h")]
+position = Vector2(722, 204)
+
+[node name="wizard" parent="." instance=ExtResource("1_2x568")]
+position = Vector2(477, 335)

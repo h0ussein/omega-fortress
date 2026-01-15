@@ -1,0 +1,261 @@
+[gd_scene load_steps=17 format=3 uid="uid://b7n1whkaae1wp"]
+
+[ext_resource type="Texture2D" uid="uid://6pnc8titmpq4" path="res://background.jpg" id="1_sieiw"]
+[ext_resource type="Script" path="res://map.gd" id="1_w032f"]
+[ext_resource type="FontFile" uid="uid://bvr85bfmbnisr" path="res://Super Cottage.ttf" id="2_7iouj"]
+[ext_resource type="Texture2D" uid="uid://djsvfhw64d8ov" path="res://forest.png" id="3_3xieo"]
+[ext_resource type="Texture2D" uid="uid://5npos0pdc80v" path="res://desert.png" id="4_k6873"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bl7dy"]
+texture = ExtResource("1_sieiw")
+modulate_color = Color(0.384314, 0.384314, 0.384314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfifu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vehqp"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug7hk"]
+bg_color = Color(0.729412, 0.729412, 0.729412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pky0q"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0kdue"]
+texture = ExtResource("3_3xieo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbke7"]
+texture = ExtResource("4_k6873")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7ngm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7qoi"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t55g"]
+bg_color = Color(0.729412, 0.729412, 0.729412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3a17e"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w032f")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bl7dy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.193
+anchor_right = 0.5
+anchor_bottom = 0.193
+offset_left = -140.0
+offset_top = -44.064
+offset_right = 132.0
+offset_bottom = 39.936
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_7iouj")
+theme_override_font_sizes/font_size = 50
+text = "Select Map "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.25463
+anchor_right = 0.953125
+anchor_bottom = 0.953704
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="map1" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="map2" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = 167.0
+offset_right = -670.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="TextureRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.792
+anchor_right = 0.5
+anchor_bottom = 0.792
+offset_left = -59.0
+offset_top = -31.024
+offset_right = 62.0
+offset_bottom = 30.976
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vfifu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vehqp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ug7hk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pky0q")
+text = "Select
+"
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.513
+anchor_top = 0.575
+anchor_right = 0.513
+anchor_bottom = 0.575
+offset_left = -61.304
+offset_top = -16.025
+offset_right = 59.696
+offset_bottom = 38.975
+theme_override_font_sizes/font_size = 40
+text = "Forest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 0.285
+anchor_right = 0.51
+anchor_bottom = 0.285
+offset_left = -187.08
+offset_top = -92.395
+offset_right = 200.92
+offset_bottom = 100.605
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0kdue")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.742
+anchor_top = 0.466
+anchor_right = 0.742
+anchor_bottom = 0.466
+offset_left = -186.784
+offset_top = -101.968
+offset_right = 201.216
+offset_bottom = 91.032
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pbke7")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.726
+anchor_top = 0.671
+anchor_right = 0.726
+anchor_bottom = 0.671
+offset_left = -43.352
+offset_top = -19.808
+offset_right = 84.648
+offset_bottom = 35.192
+theme_override_font_sizes/font_size = 40
+text = "Desert"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.748
+anchor_top = 0.802
+anchor_right = 0.748
+anchor_bottom = 0.802
+offset_left = -60.696
+offset_top = -27.696
+offset_right = 61.304
+offset_bottom = 31.304
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7ngm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o7qoi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0t55g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3a17e")
+text = "Select
+"
+
+[connection signal="pressed" from="TextureRect/Button" to="." method="start_game"]

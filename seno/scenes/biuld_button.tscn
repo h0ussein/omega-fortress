@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://brbpw0tl6psd5"]
+
+[ext_resource type="Script" path="res://scripts/biuld_button.gd" id="1_nxtw6"]
+
+[node name="UILayer" type="CanvasLayer"]
+script = ExtResource("1_nxtw6")
+
+[node name="BuildButton" type="Button" parent="."]
+offset_left = 232.0
+offset_top = 50.0
+offset_right = 280.0
+offset_bottom = 81.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Build Mode"

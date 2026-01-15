@@ -1,0 +1,274 @@
+[gd_scene load_steps=19 format=3 uid="uid://c4sphl2jhcsep"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_rqgq3"]
+[ext_resource type="PackedScene" uid="uid://c6p507w1j3lwf" path="res://scenes/barrier.tscn" id="2_dn88x"]
+[ext_resource type="PackedScene" uid="uid://dja2xt5b4jgoh" path="res://scenes/base.tscn" id="3_8unso"]
+[ext_resource type="PackedScene" uid="uid://bobb02e3lacn3" path="res://scenes/ui.tscn" id="5_ko7wu"]
+[ext_resource type="Script" path="res://scripts/BarrierPlacer.gd" id="8_30lnw"]
+[ext_resource type="PackedScene" uid="uid://v5c2h61a5ttn" path="res://scenes/grid_system.tscn" id="8_u3coy"]
+[ext_resource type="Script" path="res://scripts/ui_layer_managerr.gd" id="9_dvqhb"]
+[ext_resource type="Script" path="res://scripts/CameraController.gd" id="10_nidiq"]
+[ext_resource type="Script" path="res://scripts/WaveManager.gd" id="11_qn0vt"]
+[ext_resource type="Script" path="res://scripts/node_2d.gd" id="11_tuqpp"]
+[ext_resource type="Script" path="res://scripts/fixed_ui_container.gd" id="14_hfmpe"]
+[ext_resource type="Script" path="res://scripts/gold_display.gd" id="15_nfst7"]
+[ext_resource type="Script" path="res://scripts/WaveDisplay.gd" id="16_3rjfb"]
+[ext_resource type="Texture2D" uid="uid://biqusuekywg1i" path="res://assets/back.png" id="16_pfvh6"]
+[ext_resource type="Texture2D" uid="uid://cr7sdi8h6v75f" path="res://assets/hero_mages/Elements/Coin/Coin_0000000.png" id="17_7hj3f"]
+[ext_resource type="Script" path="res://scripts/music/music_manager.gd" id="17_y52ac"]
+[ext_resource type="Script" path="res://scripts/debug_boss.gd" id="18_ev8rt"]
+[ext_resource type="Script" path="res://scripts/UIIntegrator.gd" id="21_5sfj2"]
+
+[node name="Node2D_main" type="Node2D"]
+position = Vector2(3, 1)
+script = ExtResource("1_rqgq3")
+
+[node name="Heros" type="Node2D" parent="."]
+
+[node name="GridSystem" parent="." instance=ExtResource("8_u3coy")]
+grid_width = 100
+green_zone_size = 17
+green_zone_y_offset = 0
+
+[node name="BarrierPlacer" type="Node2D" parent="."]
+script = ExtResource("8_30lnw")
+barrier_scene = ExtResource("2_dn88x")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("10_nidiq")
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("11_qn0vt")
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+script = ExtResource("11_tuqpp")
+
+[node name="FixedUIContainer" type="CanvasLayer" parent="."]
+script = ExtResource("14_hfmpe")
+
+[node name="Control2" type="Control" parent="FixedUIContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1146.0
+offset_bottom = 618.0
+metadata/_edit_use_anchors_ = true
+
+[node name="UIIntegrator" type="Node" parent="FixedUIContainer/Control2"]
+script = ExtResource("21_5sfj2")
+
+[node name="WaveDisplay" type="Control" parent="FixedUIContainer/Control2"]
+layout_mode = 1
+anchor_left = 0.0796725
+anchor_top = 0.0323102
+anchor_right = 0.0796725
+anchor_bottom = 0.0323102
+offset_left = -0.225006
+offset_right = 338.775
+offset_bottom = 125.0
+script = ExtResource("16_3rjfb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="FixedUIContainer/Control2/WaveDisplay"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "."
+metadata/_edit_use_anchors_ = true
+
+[node name="GoldDisplay" type="Control" parent="FixedUIContainer/Control2"]
+layout_mode = 1
+anchor_left = 0.411742
+anchor_top = 0.0581583
+anchor_right = 0.411742
+anchor_bottom = 0.0581583
+offset_left = -0.445038
+offset_top = 3.0
+offset_right = 125.555
+offset_bottom = 71.0
+script = ExtResource("15_nfst7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Panel" parent="FixedUIContainer/Control2/GoldDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.014
+anchor_bottom = 0.015
+offset_top = 0.048
+offset_right = 162.0
+offset_bottom = 62.98
+metadata/_edit_use_anchors_ = true
+
+[node name="GoldIcon" type="TextureRect" parent="FixedUIContainer/Control2/GoldDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.079
+anchor_top = 0.221
+anchor_right = 0.079
+anchor_bottom = 0.221
+offset_left = 0.0460024
+offset_top = -0.0280008
+offset_right = 37.046
+offset_bottom = 31.972
+texture = ExtResource("17_7hj3f")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GoldLabel" type="Label" parent="FixedUIContainer/Control2/GoldDisplay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.222
+anchor_right = 0.5
+anchor_bottom = 0.222
+offset_left = 11.0
+offset_top = -2.096
+offset_right = 58.0
+offset_bottom = 35.904
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOver" type="Control" parent="FixedUIContainer"]
+visible = false
+layout_mode = 3
+anchor_left = -0.352
+anchor_top = -0.443
+anchor_right = 0.388021
+anchor_bottom = 0.387346
+offset_left = 496.504
+offset_top = 307.064
+offset_right = 612.0
+offset_bottom = 347.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="FixedUIContainer/GameOver"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118
+anchor_top = 0.145
+anchor_right = 0.118
+anchor_bottom = 0.145
+offset_left = -0.224007
+offset_top = 0.189995
+offset_right = 727.776
+offset_bottom = 420.19
+
+[node name="Label" type="Label" parent="FixedUIContainer/GameOver"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 120.0
+offset_right = 925.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="FixedUIContainer/GameOver"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 244.0
+offset_right = 556.0
+offset_bottom = 288.0
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[node name="GameWin" type="Control" parent="FixedUIContainer"]
+visible = false
+layout_mode = 3
+anchor_right = 0.407118
+anchor_bottom = 0.404321
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="FixedUIContainer/GameWin"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 159.0
+offset_right = 837.0
+offset_bottom = 459.0
+
+[node name="Label" type="Label" parent="FixedUIContainer/GameWin"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 386.0
+offset_top = 154.0
+offset_right = 771.0
+offset_bottom = 266.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "you win!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="FixedUIContainer/GameWin"]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 320.0
+offset_right = 702.0
+offset_bottom = 371.0
+text = "Quit"
+
+[node name="Setting" type="Control" parent="FixedUIContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="match_info" type="Control" parent="FixedUIContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ui" parent="." instance=ExtResource("5_ko7wu")]
+script = ExtResource("9_dvqhb")
+
+[node name="Marker2D_1" type="Marker2D" parent="." groups=["enemy_spawn_point"]]
+position = Vector2(-888, -788)
+
+[node name="Marker2D_2" type="Marker2D" parent="." groups=["enemy_spawn_point"]]
+position = Vector2(-4, -960)
+
+[node name="Marker2D_3" type="Marker2D" parent="." groups=["enemy_spawn_point"]]
+position = Vector2(1101, -731)
+
+[node name="Marker2D_4" type="Marker2D" parent="." groups=["enemy_spawn_point"]]
+position = Vector2(-1294, -26)
+
+[node name="Marker2D_5" type="Marker2D" parent="." groups=["enemy_spawn_point"]]
+position = Vector2(1207, -38)
+
+[node name="Marker2D_6" type="Marker2D" parent="." groups=["enemy_spawn_point"]]
+position = Vector2(776, 394)
+
+[node name="Marker2D_7" type="Marker2D" parent="." groups=["enemy_spawn_point"]]
+position = Vector2(-949, 577)
+
+[node name="Marker2D_8" type="Marker2D" parent="." groups=["enemy_spawn_point"]]
+position = Vector2(-40, 832)
+
+[node name="Base" parent="." instance=ExtResource("3_8unso")]
+position = Vector2(0, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(-16, -10)
+scale = Vector2(1.89125, 1.77026)
+texture = ExtResource("16_pfvh6")
+
+[node name="music" type="Node" parent="."]
+script = ExtResource("17_y52ac")
+
+[node name="debug_boss" type="Node" parent="."]
+script = ExtResource("18_ev8rt")
+
+[node name="Marker_path" type="Marker2D" parent="."]
+position = Vector2(-608, 48)
+
+[connection signal="pressed" from="FixedUIContainer/GameOver/Button2" to="." method="_on_match_ended"]
+[connection signal="pressed" from="FixedUIContainer/GameWin/Button" to="." method="_on_quit_game"]

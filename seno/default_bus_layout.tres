@@ -1,0 +1,22 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://ppbc84x6uddc"]
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_ybaqt"]
+resource_name = "Amplify"
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_mm4ha"]
+resource_name = "EQ10"
+
+[resource]
+bus/0/solo = true
+bus/0/mute = true
+bus/0/bypass_fx = true
+bus/0/effect/0/effect = SubResource("AudioEffectAmplify_ybaqt")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectEQ10_mm4ha")
+bus/0/effect/1/enabled = true
+bus/1/name = &"New Bus"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"

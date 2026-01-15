@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpreicvwmtrq8"]
+
+[ext_resource type="Script" path="res://scripts/heroes/electirc_fire.gd" id="1_yghkt"]
+[ext_resource type="Texture2D" uid="uid://dgrtv6pwidntx" path="res://assets/hero_mages/Elements/Elemets , Bullets, Etc/Blast.png" id="2_4jb1y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_inyp8"]
+radius = 21.095
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23vgb"]
+atlas = ExtResource("2_4jb1y")
+region = Rect2(0, 0, 359, 1673)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8gj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23vgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 9
+collision_mask = 2
+script = ExtResource("1_yghkt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_inyp8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0351671, 0.0227137)
+sprite_frames = SubResource("SpriteFrames_b8gj1")
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

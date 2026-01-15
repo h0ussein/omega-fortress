@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4sphl2jhcsep"]
+
+[ext_resource type="PackedScene" uid="uid://ukpvia7nqbw1" path="res://scenes/red_wizard_woman.tscn" id="1_2x568"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_rqgq3"]
+[ext_resource type="PackedScene" uid="uid://c6p507w1j3lwf" path="res://scenes/barier.tscn" id="2_dn88x"]
+[ext_resource type="PackedScene" uid="uid://dja2xt5b4jgoh" path="res://scenes/base.tscn" id="3_8unso"]
+[ext_resource type="PackedScene" uid="uid://dqmfowyef4bb2" path="res://scenes/ui.tscn" id="5_ko7wu"]
+[ext_resource type="Script" path="res://scripts/BarrierPlacer.gd" id="8_30lnw"]
+[ext_resource type="PackedScene" uid="uid://v5c2h61a5ttn" path="res://scenes/grid_system.tscn" id="8_u3coy"]
+[ext_resource type="Script" path="res://scripts/ui_layer_managerr.gd" id="9_dvqhb"]
+[ext_resource type="Script" path="res://scripts/CameraController.gd" id="10_nidiq"]
+[ext_resource type="PackedScene" uid="uid://kithousf5a41" path="res://scenes/enemy_1.tscn" id="10_y8w4m"]
+
+[node name="Node2D_main" type="Node2D"]
+position = Vector2(-12, -9)
+script = ExtResource("1_rqgq3")
+
+[node name="Heros" type="Node2D" parent="."]
+
+[node name="wizard" parent="." instance=ExtResource("1_2x568")]
+position = Vector2(41, -69)
+
+[node name="Base" parent="." instance=ExtResource("3_8unso")]
+position = Vector2(5, 4)
+
+[node name="enemy2" parent="." instance=ExtResource("10_y8w4m")]
+position = Vector2(19, 349)
+speed = null
+attack_damage = null
+attack_interval = null
+move_speed = null
+health = null
+max_health = null
+damage = null
+attack_range = null
+attack_cooldown = null
+gold_value = null
+
+[node name="enemy3" parent="." instance=ExtResource("10_y8w4m")]
+position = Vector2(19, 295)
+speed = null
+attack_damage = null
+attack_interval = null
+move_speed = null
+health = null
+max_health = null
+damage = null
+attack_range = null
+attack_cooldown = null
+gold_value = null
+
+[node name="enemy4" parent="." instance=ExtResource("10_y8w4m")]
+position = Vector2(78, 236)
+speed = null
+attack_damage = null
+attack_interval = null
+move_speed = null
+health = null
+max_health = null
+damage = null
+attack_range = null
+attack_cooldown = null
+gold_value = null
+
+[node name="GridSystem" parent="." instance=ExtResource("8_u3coy")]
+
+[node name="BarrierPlacer" type="Node2D" parent="."]
+script = ExtResource("8_30lnw")
+barrier_scene = ExtResource("2_dn88x")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("10_nidiq")
+
+[node name="ui" parent="." instance=ExtResource("5_ko7wu")]
+layer = 10
+script = ExtResource("9_dvqhb")

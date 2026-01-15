@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://blw7y2q80o8wv"]
+
+[ext_resource type="Script" path="res://scripts/Barrier.gd" id="1_vxniu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwkty"]
+size = Vector2(39, 39)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_vxniu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19.5, 20.5)
+shape = SubResource("RectangleShape2D_fwkty")

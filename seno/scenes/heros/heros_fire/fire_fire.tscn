@@ -1,0 +1,120 @@
+[gd_scene load_steps=24 format=3 uid="uid://ch77bxuc0k33i"]
+
+[ext_resource type="Script" path="res://scripts/heroes/fire_fire.gd" id="1_thfjh"]
+[ext_resource type="Texture2D" uid="uid://bqt3el8r87bfb" path="res://assets/hero_mages/Elements/Explosions/EXPLOSIONS1.png" id="2_1pk6x"]
+[ext_resource type="Texture2D" uid="uid://bo7is6salvrcy" path="res://assets/hero_mages/Elements/Explosions/EXPLOSIONS2.png" id="3_rvw8h"]
+[ext_resource type="Texture2D" uid="uid://vk4p6xgw8qdy" path="res://assets/hero_mages/Elements/Explosions/EXPLOSIONS3.png" id="4_4ha02"]
+[ext_resource type="Texture2D" uid="uid://cylr6m0ysvxkr" path="res://assets/hero_mages/Elements/Explosions/EXPLOSIONS4.png" id="5_dhqws"]
+[ext_resource type="Texture2D" uid="uid://c3miyep1hgvuu" path="res://assets/hero_mages/Elements/Explosions/EXPLOSIONS5.png" id="6_n302p"]
+[ext_resource type="Texture2D" uid="uid://ca8kb35hdx7jt" path="res://assets/hero_mages/Elements/Explosions/EXPLOSIONS6.png" id="7_t4856"]
+[ext_resource type="Texture2D" uid="uid://brs2dlea5m75f" path="res://assets/hero_mages/Elements/Explosions/EXPLOSIONS7.png" id="8_inbbc"]
+[ext_resource type="Texture2D" uid="uid://bmxn3lco455nw" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Fire (1).png" id="9_vg6hx"]
+[ext_resource type="Texture2D" uid="uid://cxy71fhb67c8p" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Fire (2).png" id="10_u21mx"]
+[ext_resource type="Texture2D" uid="uid://bs64w1ymnjlbr" path="res://assets/hero_mages/Game Character Sprites/Character (10)/Fire (3).png" id="11_t3oq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiyo7"]
+atlas = ExtResource("2_1pk6x")
+region = Rect2(0, 0, 789, 825)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfjyi"]
+atlas = ExtResource("3_rvw8h")
+region = Rect2(0, 0, 789, 825)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olvsa"]
+atlas = ExtResource("4_4ha02")
+region = Rect2(0, 0, 789, 825)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwqgj"]
+atlas = ExtResource("5_dhqws")
+region = Rect2(0, 0, 789, 825)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sf0w"]
+atlas = ExtResource("6_n302p")
+region = Rect2(0, 0, 789, 825)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50lfw"]
+atlas = ExtResource("7_t4856")
+region = Rect2(0, 0, 789, 825)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sgga"]
+atlas = ExtResource("8_inbbc")
+region = Rect2(0, 0, 789, 825)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt1jq"]
+atlas = ExtResource("9_vg6hx")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ldh"]
+atlas = ExtResource("10_u21mx")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raj3g"]
+atlas = ExtResource("11_t3oq0")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ieolr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiyo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfjyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olvsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwqgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sf0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50lfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sgga")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt1jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ldh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raj3g")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_inyp8"]
+radius = 21.095
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 9
+collision_mask = 2
+script = ExtResource("1_thfjh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -3)
+scale = Vector2(0.0872745, 0.0882052)
+sprite_frames = SubResource("SpriteFrames_ieolr")
+animation = &"fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_inyp8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_explosion_complete"]

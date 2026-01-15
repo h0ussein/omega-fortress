@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcvnblynxicgk"]
+
+[ext_resource type="Texture2D" uid="uid://6pnc8titmpq4" path="res://interface/background.jpg" id="1_1foyy"]
+[ext_resource type="Script" path="res://interface/control.gd" id="1_6iapd"]
+[ext_resource type="FontFile" uid="uid://bvr85bfmbnisr" path="res://interface/Super Cottage.ttf" id="2_uqtnp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_at6bf"]
+texture = ExtResource("1_1foyy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pua8e"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("loading_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6iapd")
+loading_bar = NodePath("ProgressBar")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_at6bf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.249
+anchor_right = 0.5
+anchor_bottom = 0.257
+offset_left = -139.5
+offset_top = -41.352
+offset_right = 139.5
+offset_bottom = 36.464
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_uqtnp")
+theme_override_font_sizes/font_size = 70
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -23.0
+offset_right = 204.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_pua8e")
+max_value = 1.0
+step = 0.0
+
+[node name="percentage_label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.629
+anchor_right = 0.5
+anchor_bottom = 0.629
+offset_left = -21.0
+offset_top = -16.592
+offset_right = 21.0
+offset_bottom = 16.408
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+justification_flags = 131

@@ -1,0 +1,311 @@
+[gd_scene load_steps=65 format=3 uid="uid://wudb0hqfig4k"]
+
+[ext_resource type="Script" path="res://scripts/heroes/electric_wizard.gd" id="1_oik7e"]
+[ext_resource type="PackedScene" uid="uid://dpreicvwmtrq8" path="res://scenes/heros/heros_fire/electirc_fire.tscn" id="2_0qs1t"]
+[ext_resource type="Texture2D" uid="uid://dna2yfkkhmasq" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_000.png" id="3_dwxsj"]
+[ext_resource type="AudioStream" uid="uid://7437w6n6xjwd" path="res://audio/mixkit-video-game-health-recharge-2837.wav" id="3_h7avj"]
+[ext_resource type="Texture2D" uid="uid://dg1limlvpyilr" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_001.png" id="4_qceqw"]
+[ext_resource type="Texture2D" uid="uid://m2ojchd7gr5w" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_002.png" id="5_bakgs"]
+[ext_resource type="Texture2D" uid="uid://4mbkpwo5g7in" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_003.png" id="6_f0nwf"]
+[ext_resource type="Texture2D" uid="uid://bollpmdipiqb7" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_004.png" id="7_mjptg"]
+[ext_resource type="Texture2D" uid="uid://bofmiqhh82q5i" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Attack-1_005.png" id="8_gbq48"]
+[ext_resource type="Texture2D" uid="uid://cdrhqi2ll0b0e" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_000.png" id="9_o1ffu"]
+[ext_resource type="Texture2D" uid="uid://bdttu50n3asn" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_001.png" id="10_m1awt"]
+[ext_resource type="Texture2D" uid="uid://dp5gl7evjx6t8" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_002.png" id="11_0gdtp"]
+[ext_resource type="Texture2D" uid="uid://b0iwnsg8hymp4" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_003.png" id="12_5jnv1"]
+[ext_resource type="Texture2D" uid="uid://3oewvh1ybloy" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_004.png" id="13_g1r1h"]
+[ext_resource type="Texture2D" uid="uid://fk7ullqapwr" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_005.png" id="14_50s0g"]
+[ext_resource type="Texture2D" uid="uid://b7r6vtqp5l2fw" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_006.png" id="15_i631w"]
+[ext_resource type="Texture2D" uid="uid://cs5vy5hqmc7cg" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Die_007.png" id="16_80ah6"]
+[ext_resource type="Texture2D" uid="uid://c0tnrf0u0v2fc" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Hurt_000.png" id="17_cj7b5"]
+[ext_resource type="Texture2D" uid="uid://ik2cppmqrc5p" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Hurt_001.png" id="18_yh8b2"]
+[ext_resource type="Texture2D" uid="uid://k2evaa3r83tr" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Hurt_002.png" id="19_eaeh0"]
+[ext_resource type="Texture2D" uid="uid://scur61qq3v12" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_000.png" id="20_s6cyi"]
+[ext_resource type="Texture2D" uid="uid://bpsewerl3t5lh" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_001.png" id="21_v7036"]
+[ext_resource type="Texture2D" uid="uid://d1pieebu0wh2s" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_002.png" id="22_5dk72"]
+[ext_resource type="Texture2D" uid="uid://bau4nq37hnq3i" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_003.png" id="23_k25va"]
+[ext_resource type="Texture2D" uid="uid://bv3xpa4sxnir1" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_004.png" id="24_ksiea"]
+[ext_resource type="Texture2D" uid="uid://t5mubf335i7w" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Idle_005.png" id="25_mhu7k"]
+[ext_resource type="Texture2D" uid="uid://bm67qlx74fsky" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_000.png" id="26_w32cv"]
+[ext_resource type="Texture2D" uid="uid://dpvlyhg4jefbj" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_001.png" id="27_hfmvs"]
+[ext_resource type="Texture2D" uid="uid://dtd2ve3oiuimw" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_002.png" id="28_v0tt3"]
+[ext_resource type="Texture2D" uid="uid://dsxjqsvje37ti" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_003.png" id="29_os4jx"]
+[ext_resource type="Texture2D" uid="uid://bebyqpdew7vdn" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_004.png" id="30_lmiw1"]
+[ext_resource type="Texture2D" uid="uid://d1uvvu4nkp174" path="res://assets/hero_mages/Game Character Sprites/Character (5)/Run_005.png" id="31_oechu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdocg"]
+atlas = ExtResource("3_dwxsj")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1m3q"]
+atlas = ExtResource("4_qceqw")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf7ms"]
+atlas = ExtResource("5_bakgs")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42gc5"]
+atlas = ExtResource("6_f0nwf")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmngt"]
+atlas = ExtResource("7_mjptg")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k51i"]
+atlas = ExtResource("8_gbq48")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2ctd"]
+atlas = ExtResource("9_o1ffu")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmuwr"]
+atlas = ExtResource("10_m1awt")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whftj"]
+atlas = ExtResource("11_0gdtp")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jly41"]
+atlas = ExtResource("12_5jnv1")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppv4i"]
+atlas = ExtResource("13_g1r1h")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45y0w"]
+atlas = ExtResource("14_50s0g")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31gq0"]
+atlas = ExtResource("15_i631w")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg4he"]
+atlas = ExtResource("16_80ah6")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v3mu"]
+atlas = ExtResource("17_cj7b5")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sko5"]
+atlas = ExtResource("18_yh8b2")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tto63"]
+atlas = ExtResource("19_eaeh0")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugwmj"]
+atlas = ExtResource("20_s6cyi")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuhrf"]
+atlas = ExtResource("21_v7036")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h20rl"]
+atlas = ExtResource("22_5dk72")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jad8h"]
+atlas = ExtResource("23_k25va")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnxmy"]
+atlas = ExtResource("24_ksiea")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an2pb"]
+atlas = ExtResource("25_mhu7k")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0uxt"]
+atlas = ExtResource("26_w32cv")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kggvl"]
+atlas = ExtResource("27_hfmvs")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55shf"]
+atlas = ExtResource("28_v0tt3")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0a7e"]
+atlas = ExtResource("29_os4jx")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxyps"]
+atlas = ExtResource("30_lmiw1")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30reu"]
+atlas = ExtResource("31_oechu")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2vbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdocg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1m3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf7ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42gc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmngt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k51i")
+}],
+"loop": true,
+"name": &"attack1",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2ctd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmuwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whftj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jly41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppv4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45y0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31gq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg4he")
+}],
+"loop": true,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v3mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sko5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tto63")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugwmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuhrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h20rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jad8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnxmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an2pb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0uxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kggvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55shf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0a7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxyps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30reu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v62vn"]
+radius = 189.095
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h21g"]
+size = Vector2(30, 36)
+
+[node name="Electric_wizard" type="CharacterBody2D" groups=["heros"]]
+collision_mask = 6
+script = ExtResource("1_oik7e")
+projectile_scene = ExtResource("2_0qs1t")
+attack_sound = ExtResource("3_h7avj")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="ProjectileSpawnPoint" type="Marker2D" parent="Visuals"]
+position = Vector2(15, 15)
+gizmo_extents = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(-0.5, 2)
+scale = Vector2(0.0839844, 0.0820313)
+sprite_frames = SubResource("SpriteFrames_w2vbl")
+animation = &"run"
+frame_progress = 0.208835
+
+[node name="AttackArea" type="Area2D" parent="." groups=["heros"]]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visibility_layer = 2
+shape = SubResource("CircleShape2D_v62vn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["heros"]]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_1h21g")
+
+[node name="AttackTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HurtTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_enemy_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_enemy_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

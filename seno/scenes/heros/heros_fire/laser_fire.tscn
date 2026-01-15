@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://ij80hl1knuwi"]
+
+[ext_resource type="Script" path="res://scripts/heroes/laser_fire.gd" id="1_7ql6o"]
+[ext_resource type="Texture2D" uid="uid://dx8if0t5pq8xj" path="res://assets/hero_mages/Elements/Elemets , Bullets, Etc/Laser.png" id="2_q24ge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8rjt"]
+atlas = ExtResource("2_q24ge")
+region = Rect2(0, 0, 4114, 374)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_orona"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8rjt")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t421"]
+size = Vector2(95, 2)
+
+[node name="laser" type="Node2D"]
+position = Vector2(22, 0)
+script = ExtResource("1_7ql6o")
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 0)
+scale = Vector2(0.0232438, 0.0160428)
+sprite_frames = SubResource("SpriteFrames_orona")
+animation = &"beam"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(48.5, 0)
+shape = SubResource("RectangleShape2D_6t421")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(50, 1)
+scale = Vector2(0.0232134, 0.0347595)
+texture = ExtResource("2_q24ge")
